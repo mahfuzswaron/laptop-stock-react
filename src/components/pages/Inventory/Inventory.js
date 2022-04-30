@@ -14,7 +14,7 @@ const Inventory = (props) => {
             <p>${price}</p>
             <p>{quantity} available </p>
             <p>Supplier: {supplier}</p>
-            <button className='bg-blue-400 hover:bg-blue-500  px-3 py-2 mt-2 rounded text-white '>Update</button>
+            <button className='bg-blue-400 hover:bg-blue-500 px-3 py-2 mt-2 rounded text-white '>Update</button>
             </div>
         </div>
     );

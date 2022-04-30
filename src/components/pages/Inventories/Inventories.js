@@ -3,14 +3,12 @@ import UseInventories from '../../../hooks/UseInventories';
 import Inventory from '../Inventory/Inventory';
 
 const Inventories = () => {
-    // const [inventories] = UseInventories([]);
-    const [inventories, setInventories] = useState([]);
-    useEffect( ()=>{
-        fetch('laptops.json').then(res => res.json()).then(data =>{
-            console.log(data)
-            setInventories(data)
-        })
-    }, [])
+    const [inventories] = UseInventories([]);
+    
+    if(!inventories){
+        return <p>loading...</p>
+    }
+
     console.log(inventories, 'from outside fetch')
     return (
         <div>
