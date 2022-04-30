@@ -9,9 +9,8 @@ const InventoryDetails = () => {
     const [inventory] = useInventory(id);
     const {name, description, price, supplier, quantity, img} = inventory;
     const invId = "don't forget to add id here";
-    let quantt = 0;
-    const [invQuantity, setInvQuantity] = useState(quantt);
-    
+    const [invQuantity, setInvQuantity] = useState(quantity);
+    const [newQuantity, setNewQuantity] = useState(0);
     useEffect(()=>{
         setInvQuantity(quantity)
     }, [quantity])
@@ -40,9 +39,12 @@ const InventoryDetails = () => {
         <p className='mt-1'>{invQuantity} available </p>
         <p className='mt-1'>Supplier: {supplier}</p>
         <button 
-        className='bg-blue-400 hover:bg-blue-500 px-3 py-2 mt-2 rounded text-white' 
+        className='bg-green-400 hover:bg-green-500 px-3 py-2 mt-2 rounded text-white' 
         onClick={() => setInvQuantity(invQuantity - 1)}
         >Delevered</button>
+        <hr className='my-2'></hr>
+        <input onChange={(e)=> setNewQuantity(e.target.value)} className='border block px-3 py-2 mt-2' type={'number'}  />
+        <button onClick={() => setInvQuantity(parseInt(newQuantity) + parseInt(invQuantity))} className='bg-blue-400 hover:bg-blue-500 px-3 py-2 mt-2 rounded text-white block' >Add Product(s)</button>
         </div>
         </div>
     );
