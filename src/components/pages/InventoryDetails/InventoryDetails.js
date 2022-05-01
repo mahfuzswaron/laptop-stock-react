@@ -7,8 +7,7 @@ const InventoryDetails = () => {
 
     const {id} =  useParams();
     const [inventory] = useInventory(id);
-    const {name, description, price, supplier, quantity, img} = inventory;
-    const invId = "don't forget to add id here";
+    const {name, _id, description, price, supplier, sold, quantity, img} = inventory;
     const [invQuantity, setInvQuantity] = useState(quantity);
     const [newQuantity, setNewQuantity] = useState(0);
     useEffect(()=>{
@@ -25,7 +24,7 @@ const InventoryDetails = () => {
     
 
     return (
-        <div className='flex bg-white border hover:drop-shadow-xl p-3 m-5'>
+        <div className='flex bg-white border hover:drop-shadow-xl p-5 m-5'>
 
         <div className='card-img w-2/5 flex justify-center'>
             <img className='w-96' src={img} alt={name} />
@@ -33,9 +32,10 @@ const InventoryDetails = () => {
 
         <div className='card-body w-3/5'>
         <h3  className='text-2xl text-blue-400 font-medium'>{name}</h3>
-        <p className='mt-1'>Product id: {invId}</p>
+        <p className='mt-1'>Product id: {_id}</p>
         <p className='mt-1'>{description}</p>
         <p className='mt-1'><strong>${price}</strong></p>
+        <p className='mt-1'>{sold} sold</p>
         <p className='mt-1'>{invQuantity} available </p>
         <p className='mt-1'>Supplier: {supplier}</p>
         <button 
