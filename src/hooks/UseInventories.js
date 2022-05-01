@@ -5,7 +5,9 @@ const UseInventories = () =>{
     
     useEffect( ()=>{
         const getInventories = () =>{
-            fetch('laptops.json').then(res => res.json()).then(data =>{
+            fetch('http://localhost:4000/laptops')
+            .then(res => res.json())
+            .then(data =>{
                 setInventories(data)
             })
 
