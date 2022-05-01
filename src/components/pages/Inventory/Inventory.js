@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Inventory = (props) => {
     const {inventory} = props;
-    const {name, description, price, supplier, quantity, img} = inventory;
+    const {name, description, price, supplier, quantity, img, _id} = inventory;
     return (
         <div className='flex bg-white border hover:drop-shadow-xl p-3 m-5'>
 
@@ -17,7 +17,7 @@ const Inventory = (props) => {
             <p className='mt-1'><strong>${price}</strong></p>
             <p className='mt-1'>{quantity} available </p>
             <p className='mt-1'>Supplier: {supplier}</p>
-            <button className='bg-blue-400 hover:bg-blue-500 px-3 py-2 mt-2 rounded text-white '><Link to={`/inventory/${name}`}>Update</Link></button>
+            <button className='bg-blue-400 hover:bg-blue-500 px-3 py-2 mt-2 rounded text-white '><Link to={`/inventory/${_id}`}>Update</Link></button>
             </div>
         </div>
     );
