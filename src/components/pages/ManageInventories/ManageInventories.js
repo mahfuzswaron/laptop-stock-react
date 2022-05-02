@@ -13,6 +13,32 @@ const ManageInventories = () => {
     inventories.pop(item);
     console.log(inventories.length)
   }
+
+  const handleAdd = (e) =>{
+    e.preventDefault();
+    const name = e.target.name.value ;
+    const img = e.target.img.value;
+    const description = e.target.description.value;
+    const price = e.target.price.value;
+    const newInv = { 
+      name,
+      img,
+      description,
+      price,
+      email: 'user-email debo ekhane'
+    
+    }
+    fetch('http://localhost:4000/laptops/addnew',{
+        method: 'PUT',
+        headers: {
+          'content-type': 'application/json'
+        },
+        body: JSON.stringify(newInv)
+    })
+    .then(res => res.json())
+    .then(data => console.log(data))
+    
+  }
   
   return (
     <div>
@@ -47,7 +73,8 @@ const ManageInventories = () => {
           <div className='mx-auto'>
             <h3 className='text-center text-blue-500 text-3xl font-semibold my-5'>Add Inventory</h3>
             <div className='flex justify-center'>
-              <form className='flex space-x-8 items-start'>
+
+              <form onSubmit={(e)=> handleAdd(e)} className='flex space-x-8 items-start'>
                 <input className='border p-2' type={'text'} name={'name'} placeholder='Inventory Name'/>
                 <input className='border p-2' type={'text'} name={'img'} placeholder='Image Url'/>
                 <textarea className='border p-2' resize='horizontal' type={'text'} name={'description'} placeholder='Inventory description'/>
