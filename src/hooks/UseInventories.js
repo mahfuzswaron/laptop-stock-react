@@ -15,9 +15,7 @@ const UseInventories = () =>{
         getInventories();
     }, [inventories])
 
-    return [inventories
-    
-    ];
+    return [inventories];
 }
 
 export default UseInventories;
