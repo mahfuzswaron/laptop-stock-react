@@ -20,12 +20,15 @@ const ManageInventories = () => {
     const img = e.target.img.value;
     const description = e.target.description.value;
     const price = e.target.price.value;
+    const quantity = e.target.quantity.value;
     const newInv = { 
       name,
       img,
       description,
       price,
-      email: 'user-email debo ekhane'
+      email: 'user-email debo ekhane',
+      quantity,
+      sold: '0'
     
     }
     fetch('http://localhost:4000/laptops/addnew',{
@@ -78,7 +81,8 @@ const ManageInventories = () => {
                 <input className='border p-2' type={'text'} name={'name'} placeholder='Inventory Name'/>
                 <input className='border p-2' type={'text'} name={'img'} placeholder='Image Url'/>
                 <textarea className='border p-2' resize='horizontal' type={'text'} name={'description'} placeholder='Inventory description'/>
-                <input className='border p-2' type={'number'} name={'price'} placeholder='Inventory price'/>
+                <input className='border p-2' type={'number'} name={'price'} placeholder='price'/>
+                <input className='border p-2' type={'number'} name={'quantity'} placeholder='quantity'/>
                 <input className='p-2 bg-blue-500 text-white rounded' type={'submit'} value='Add Inventory' />
               </form>
             </div>
