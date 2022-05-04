@@ -9,9 +9,16 @@ const ManageInventories = () => {
   }
 
   const handleRemove = id =>{
-    const item = inventories.find(i => i._id === id);
-    inventories.pop(item);
-    console.log(inventories.length)
+   console.log('deleting ', id)
+   fetch(`http://localhost:4000/laptop?id=${id}`, {
+     method: 'POST',
+     headers:{
+       'content-type': 'application/json'
+     }
+   })
+   .then(res=> res.json())
+   .then(data => console.log(data))
+
   }
 
   const handleAdd = (e) =>{
@@ -79,12 +86,12 @@ const ManageInventories = () => {
             <h3 className='text-center text-blue-500 text-3xl font-semibold my-5'>Add Inventory</h3>
             <div className='mx-auto w-1/2'>
               <form onSubmit={(e)=> handleAdd(e)} className='flex flex-col space-y-4'>
-                <input className='border p-2' type={'text'} name={'name'} placeholder='Inventory Name'/>
-                <input className='border p-2' type={'text'} name={'img'} placeholder='Image Url'/>
-                <textarea className='border p-2' resize='horizontal' type={'text'} name={'description'} placeholder='Inventory description'/>
-                <input className='border p-2' type={'text'} name={'supplier'} placeholder="Supplier's name"/>
-                <input className='border p-2' type={'number'} name={'price'} placeholder='price'/>
-                <input className='border p-2' type={'number'} name={'quantity'} placeholder='quantity'/>
+                <input required className='border p-2' type={'text'} name={'name'} placeholder='Inventory Name'/>
+                <input required className='border p-2' type={'text'} name={'img'} placeholder='Image Url'/>
+                <textarea required className='border p-2' resize='horizontal' type={'text'} name={'description'} placeholder='Inventory description'/>
+                <input required className='border p-2' type={'text'} name={'supplier'} placeholder="Supplier's name"/>
+                <input required className='border p-2' type={'number'} name={'price'} placeholder='price'/>
+                <input required className='border p-2' type={'number'} name={'quantity'} placeholder='quantity'/>
                 <button className='p-2 bg-blue-500 text-white bg-green-500 rounded' type={'submit'}>Add Inventory</button>
               </form>
             </div>
