@@ -13,7 +13,7 @@ const useInventory = id =>{
         
         }
         getInventoryById(id)
-    }, [id])
+    }, [id, inventory])
     return [inventory]
 };
 
