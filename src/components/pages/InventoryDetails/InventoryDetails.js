@@ -8,38 +8,38 @@ const InventoryDetails = () => {
     const {id} =  useParams();
     const [inventory] = useInventory(id);
     const {name, _id, description, price, supplier, sold, quantity, img} = inventory;
-    const [invQuantity, setInvQuantity] = useState(quantity);
     const [newQuantity, setNewQuantity] = useState('0');
-    useEffect(()=>{
-        setInvQuantity(quantity)
-    }, [quantity])
 
     if(!inventory){
         return <p>loading...</p>
     }
     
-    if(!invQuantity){
-        return <p>quantity loading...</p> 
-    }
-    const handleQuantity = (posOrNeg) =>{
-        if(posOrNeg === true){
-            setInvQuantity(parseInt(newQuantity) + parseInt(invQuantity));
-            const update = {
-                quantity: invQuantity
-            }
-            fetch(`http://localhost:4000/laptop/update?id=${_id}`, {
-                method: 'PUT',
-                headers:{
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify(update)
-            })
-            .then(res => res.json())
-            .then(data => console.log(data))
+    const handleQuantity =  (WillIncrease) =>{
+        let updatedQuantity ;
+        if(WillIncrease === true){
+         updatedQuantity = parseInt(newQuantity) + parseInt(quantity);
         }
-        if(posOrNeg === false){
-            setInvQuantity(invQuantity - 1)
+        
+        if(WillIncrease === false){
+           updatedQuantity = parseInt(quantity) -1
         }
+
+        const update = {
+            quantity: updatedQuantity
+        }
+        
+        fetch(`http://localhost:4000/laptop/update?id=${_id}`, {
+           method: 'PUT',
+           headers:{
+               'content-type': 'application/json'
+           },
+           body: JSON.stringify(update)
+       })
+       .then(res => res.json())
+       .then(data => console.log(data))
+
+        
+
         console.log(quantity)
     }
 
@@ -56,7 +56,7 @@ const InventoryDetails = () => {
         <p className='mt-1'>{description}</p>
         <p className='mt-1'><strong>${price}</strong></p>
         <p className='mt-1'>{sold} sold</p>
-        <p className='mt-1'>{invQuantity} available </p>
+        <p className='mt-1'>{quantity} available </p>
         <p className='mt-1'>Supplier: {supplier}</p>
         <button 
         className='bg-green-400 hover:bg-green-500 px-3 py-2 mt-2 rounded text-white' 
