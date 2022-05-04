@@ -16,18 +16,21 @@ const InventoryDetails = () => {
     
     const handleQuantity =  (WillIncrease) =>{
         let updatedQuantity ;
+        let updatedSold = sold;
         if(WillIncrease === true){
          updatedQuantity = parseInt(newQuantity) + parseInt(quantity);
         }
         
         if(WillIncrease === false){
-           updatedQuantity = parseInt(quantity) -1
+           updatedQuantity = parseInt(quantity) -1;
+           updatedSold = parseInt(sold) + 1;
         }
 
         const update = {
-            quantity: updatedQuantity
+            quantity: updatedQuantity,
+            sold: updatedSold
         }
-        
+
         fetch(`http://localhost:4000/laptop/update?id=${_id}`, {
            method: 'PUT',
            headers:{
@@ -37,10 +40,6 @@ const InventoryDetails = () => {
        })
        .then(res => res.json())
        .then(data => console.log(data))
-
-        
-
-        console.log(quantity)
     }
 
     return (
