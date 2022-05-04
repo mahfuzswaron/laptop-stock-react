@@ -9,7 +9,7 @@ const InventoryDetails = () => {
     const [inventory] = useInventory(id);
     const {name, _id, description, price, supplier, sold, quantity, img} = inventory;
     const [invQuantity, setInvQuantity] = useState(quantity);
-    const [newQuantity, setNewQuantity] = useState(0);
+    const [newQuantity, setNewQuantity] = useState('0');
     useEffect(()=>{
         setInvQuantity(quantity)
     }, [quantity])
@@ -21,7 +21,27 @@ const InventoryDetails = () => {
     if(!invQuantity){
         return <p>quantity loading...</p> 
     }
-    
+    const handleQuantity = (posOrNeg) =>{
+        if(posOrNeg === true){
+            setInvQuantity(parseInt(newQuantity) + parseInt(invQuantity));
+            const update = {
+                quantity: invQuantity
+            }
+            fetch(`http://localhost:4000/laptop/update?id=${_id}`, {
+                method: 'PUT',
+                headers:{
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(update)
+            })
+            .then(res => res.json())
+            .then(data => console.log(data))
+        }
+        if(posOrNeg === false){
+            setInvQuantity(invQuantity - 1)
+        }
+        console.log(quantity)
+    }
 
     return (
         <div className='flex bg-white border hover:drop-shadow-xl p-5 m-5'>
@@ -40,11 +60,11 @@ const InventoryDetails = () => {
         <p className='mt-1'>Supplier: {supplier}</p>
         <button 
         className='bg-green-400 hover:bg-green-500 px-3 py-2 mt-2 rounded text-white' 
-        onClick={() => setInvQuantity(invQuantity - 1)}
+        onClick={() => handleQuantity(false)}
         >Delevered</button>
         <hr className='my-2'></hr>
         <input onChange={(e)=> setNewQuantity(e.target.value)} className='border block px-3 py-2 mt-2' type={'number'}  />
-        <button onClick={() => setInvQuantity(parseInt(newQuantity) + parseInt(invQuantity))} className='bg-blue-400 hover:bg-blue-500 px-3 py-2 mt-2 rounded text-white block' >Add Product(s)</button>
+        <button onClick={() => handleQuantity(true)} className='bg-blue-400 hover:bg-blue-500 px-3 py-2 mt-2 rounded text-white block' >Add Product(s)</button>
         </div>
         </div>
     );

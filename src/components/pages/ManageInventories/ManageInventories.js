@@ -49,7 +49,7 @@ const ManageInventories = () => {
     
     }
     fetch('http://localhost:4000/laptops/addnew',{
-        method: 'PUT',
+        method: 'POST',
         headers: {
           'content-type': 'application/json'
         },
