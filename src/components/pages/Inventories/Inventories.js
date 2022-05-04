@@ -14,6 +14,7 @@ const Inventories = () => {
             <div className='grid grid-cols-2 mt-5 '>
                 {
                     inventories.map(inv => <Inventory 
+                        key={inv._id}
                         inventory={inv}
                     ></Inventory>)
                 }
