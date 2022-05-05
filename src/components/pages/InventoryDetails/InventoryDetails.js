@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import useInventory from '../../../hooks/useInventory';
 
@@ -19,6 +19,7 @@ const InventoryDetails = () => {
         let updatedSold = sold;
         if(WillIncrease === true){
          updatedQuantity = parseInt(newQuantity) + parseInt(quantity);
+
         }
         
         if(WillIncrease === false){
@@ -62,8 +63,8 @@ const InventoryDetails = () => {
         onClick={() => handleQuantity(false)}
         >Delevered</button>
         <hr className='my-2'></hr>
-        <input onChange={(e)=> setNewQuantity(e.target.value)} className='border block px-3 py-2 mt-2' type={'number'}  />
-        <button onClick={() => handleQuantity(true)} className='bg-blue-400 hover:bg-blue-500 px-3 py-2 mt-2 rounded text-white block' >Add Product(s)</button>
+        <input onBlur={(e)=> e.target.value = ''} onChange={(e)=> setNewQuantity(e.target.value)} className='border block px-3 py-2 mt-2' type={'number'}  />
+        <button onClick={() => {handleQuantity(true)}} className='bg-blue-400 hover:bg-blue-500 px-3 py-2 mt-2 rounded text-white block' >Add Product(s)</button>
         </div>
         </div>
     );
