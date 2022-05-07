@@ -13,7 +13,7 @@ const Header = () => {
             <Link className='hover:font-bold' to={'/inventories'}>INVENTORIES</Link>
             <Link className='hover:font-bold' to={'/manageinventories'}>MANAGE INVENTORIES</Link>
             <Link className='hover:font-bold' to={'/blogs'}>BLOGS</Link>
-            <Link className='hover:font-bold' to={'/signin'}>SIGN IN</Link>
+            <Link className='hover:font-bold' to={'/registar'}>REGISTAR</Link>
             </div>
         </nav>
     );

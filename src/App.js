@@ -7,6 +7,7 @@ import Footer from '../src/components/shared/Footer/Footer';
 import Inventories from './components/pages/Inventories/Inventories';
 import InventoryDetails from './components/pages/InventoryDetails/InventoryDetails';
 import ManageInventories from './components/pages/ManageInventories/ManageInventories';
+import Registar from './components/Registar/Registar';
 function App() {
   return (
     <div>
@@ -17,6 +18,7 @@ function App() {
         <Route path='/inventories' element={<Inventories></Inventories>}></Route>
         <Route path='/inventory/:id' element={<InventoryDetails></InventoryDetails>}></Route>
         <Route path='/manageinventories' element={<ManageInventories></ManageInventories>}></Route>
+        <Route path='/registar' element={<Registar></Registar>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
