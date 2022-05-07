@@ -9,6 +9,7 @@ import InventoryDetails from './components/pages/InventoryDetails/InventoryDetai
 import ManageInventories from './components/pages/ManageInventories/ManageInventories';
 import Registar from './components/pages/Registar/Registar';
 import Login from './components/pages/Login/Login';
+import RequireAuth from './components/shared/RequireAuth/RequireAuth';
 function App() {
   return (
     <div>
@@ -17,8 +18,12 @@ function App() {
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
         <Route path='/inventories' element={<Inventories></Inventories>}></Route>
-        <Route path='/inventory/:id' element={<InventoryDetails></InventoryDetails>}></Route>
-        <Route path='/manageinventories' element={<ManageInventories></ManageInventories>}></Route>
+        <Route path='/inventory/:id' element={<RequireAuth>
+          <InventoryDetails></InventoryDetails>
+        </RequireAuth>}></Route>
+        <Route path='/manageinventories' element={<RequireAuth>
+          <ManageInventories></ManageInventories>
+        </RequireAuth>}></Route>
         <Route path='/registar' element={<Registar></Registar>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>

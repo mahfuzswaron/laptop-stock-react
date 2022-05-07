@@ -14,13 +14,8 @@ const Header = () => {
     if (loading) {
         return <p>loading...</p>
     }
-    if (!user) {
-        console.log('user nai')
-    }
-
     const handleSignOut =async () =>{
         await signOut(auth)
-        navigate('/registar')
     }
     return (
         <nav className='mx-auto sticky top-0 z-10 '>
@@ -32,7 +27,7 @@ const Header = () => {
                 {
                     user ?  <p className='hover:font-bold' style={{'cursor': 'pointer'}} onClick={handleSignOut}>LOG OUT</p>
                         :
-                        <Link className='hover:font-bold' to={'/registar'}>REGISTAR</Link>
+                        <Link className='hover:font-bold' to={'/login'}>LOG IN</Link>
             
             }
             </div>
