@@ -10,7 +10,6 @@ const style = {
 
 const Header = () => {
     const [user, loading, error] = useAuthState(auth);
-    const navigate = useNavigate();
     if (loading) {
         return <p>loading...</p>
     }
@@ -23,6 +22,8 @@ const Header = () => {
             <Link className='hover:font-bold' to={'/home'}>HOME</Link>
             <Link className='hover:font-bold' to={'/inventories'}>INVENTORIES</Link>
             <Link className='hover:font-bold' to={'/manageinventories'}>MANAGE INVENTORIES</Link>
+            <Link className='hover:font-bold' to={'/myitems'}>MY ITEMS</Link>
+            
             <Link className='hover:font-bold' to={'/blogs'}>BLOGS</Link>
                 {
                     user ?  <p className='hover:font-bold' style={{'cursor': 'pointer'}} onClick={handleSignOut}>LOG OUT</p>
