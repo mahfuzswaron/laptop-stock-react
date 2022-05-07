@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import UseInventories from '../../../hooks/UseInventories';
 import Inventories from '../Inventories/Inventories';
 import Inventory from '../Inventory/Inventory';
@@ -23,7 +24,7 @@ const Home = () => {
             </div>
 
             <div >
-                <h1 className='text-blue-500 font-semibold text-center text-4xl'>Inventories ({inventories6?.length})</h1>
+                <h1 className='text-blue-500 font-semibold text-center text-4xl'>Inventories ({inventories6?.length}/{inventories?.length})</h1>
                 <div className='grid grid-cols-2 mt-5 '>
                      {
                     inventories6.map(inv => <Inventory 
@@ -31,7 +32,8 @@ const Home = () => {
                         inventory={inv}
                     ></Inventory>)
                 }
-               </div>
+                </div>
+                <button className='py-2 px-5 mx-auto flex justify-center  hover:bg-blue-700 text-white bg-blue-500 rounded' type={'submit'}><Link to={'/inventories'}>See All</Link></button>
 
             </div>
         </div>
