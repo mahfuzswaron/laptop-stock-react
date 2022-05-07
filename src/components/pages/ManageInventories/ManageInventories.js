@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import UseInventories from '../../../hooks/UseInventories';
 
 const removeIcon = <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="#FF0000">
@@ -8,7 +9,9 @@ const removeIcon = <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" v
 
 const ManageInventories = () => {
   const [inventories] = UseInventories([]);
-  
+  let location = useLocation();
+  const path = location.pathname.slice(1);
+
   if(!inventories){
     return <p>loading...</p>
   }
@@ -64,7 +67,9 @@ const ManageInventories = () => {
   
   return (
     <div>
-        <h1 className='text-3xl text-blue-500 font-semibold text-center my-5' >Manage Inventories ({inventories.length}) </h1>
+      <h1 className='text-3xl text-blue-500 font-semibold text-center my-5'>
+        {path === 'manageinventories'? "Manage Inventories" : "My Items"} ({inventories.length})
+      </h1>
         <div>
           <table className='w-full mx-auto'>
             <thead>
@@ -91,6 +96,9 @@ const ManageInventories = () => {
             }
             </tbody>
           </table>
+        {
+          path === 'manageinventories' && 
+          <>
           <hr className='my-5 w-3/5 mx-auto'></hr>
           <div className='mx-auto'>
             <h3 className='text-center text-blue-500 text-3xl font-semibold my-5'>Add Inventory</h3>
@@ -106,6 +114,8 @@ const ManageInventories = () => {
               </form>
             </div>
           </div>
+          </>
+          }
         </div>
     </div>
   );
