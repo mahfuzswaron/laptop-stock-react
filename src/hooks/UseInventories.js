@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 
 const UseInventories = () =>{
-    const [inventories, setInventories] = useState();
+    const [inventories, setInventories] = useState([]);
     
     useEffect( ()=>{
         const getInventories = () =>{
-            fetch('http://localhost:4000/laptops')
+            fetch('https://laptop-stock-server.herokuapp.com/laptops')
             .then(res => res.json())
             .then(data =>{
                 setInventories(data)

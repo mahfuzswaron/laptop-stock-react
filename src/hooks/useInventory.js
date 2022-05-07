@@ -7,7 +7,7 @@ const useInventory = id =>{
 
         const getInventoryById = (id) =>{
             
-        fetch(`http://localhost:4000/laptops/${id}`)
+        fetch(`https://laptop-stock-server.herokuapp.com/laptops/${id}`)
         .then(res => res.json())
         .then(data => setInventory(data))
         

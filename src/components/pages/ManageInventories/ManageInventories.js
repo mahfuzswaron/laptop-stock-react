@@ -18,7 +18,7 @@ const ManageInventories = () => {
    if(!proceed){
      return;
    }
-   fetch(`http://localhost:4000/laptop?id=${id}`, {
+   fetch(`https://laptop-stock-server.herokuapp.com/laptop?id=${id}`, {
      method: 'POST',
      headers:{
        'content-type': 'application/json'
@@ -48,7 +48,7 @@ const ManageInventories = () => {
       sold: '0'
     
     }
-    fetch('http://localhost:4000/laptops/addnew',{
+    fetch('https://laptop-stock-server.herokuapp.com/laptops/addnew',{
         method: 'POST',
         headers: {
           'content-type': 'application/json'

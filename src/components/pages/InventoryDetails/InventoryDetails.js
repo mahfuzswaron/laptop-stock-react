@@ -32,7 +32,7 @@ const InventoryDetails = () => {
             sold: updatedSold
         }
 
-        fetch(`http://localhost:4000/laptop/update?id=${_id}`, {
+        fetch(`https://laptop-stock-server.herokuapp.com/laptop/update?id=${_id}`, {
            method: 'PUT',
            headers:{
                'content-type': 'application/json'

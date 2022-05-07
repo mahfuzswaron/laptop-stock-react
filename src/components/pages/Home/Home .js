@@ -1,14 +1,18 @@
 import React from 'react';
+import UseInventories from '../../../hooks/UseInventories';
 import Inventories from '../Inventories/Inventories';
+import Inventory from '../Inventory/Inventory';
 
-const Home  = () => {
+const Home = () => {
+    const [inventories] = UseInventories([]);
+    const inventories6 = inventories.slice(0, 6);
     return (
         <div>
             <div className='flex items-start'>
                 <div className='mt-10 ml-5 w-1/2'>
                     <h1 className='text-6xl font-semibold text-slate-500 '>Welcome to <span className='block mt-1 text-7xl text-blue-500'>Laptop Stock</span></h1>
-                    <p className='mt-5'> Laptop Stock is a place where the world's best Laptops are stored.
-                        Browse the app to add yours and manage them.
+                    <p className='mt-5'>
+                        Laptop Stock is a place where the world's best Laptops are stored. Browse the app to add yours and manage them.
                         Have a nice day. 
                     </p>
                 </div>
@@ -18,7 +22,18 @@ const Home  = () => {
 
             </div>
 
-            <Inventories></Inventories>
+            <div >
+                <h1 className='text-blue-500 font-semibold text-center text-4xl'>Inventories ({inventories6?.length})</h1>
+                <div className='grid grid-cols-2 mt-5 '>
+                     {
+                    inventories6.map(inv => <Inventory 
+                        key={inv._id}
+                        inventory={inv}
+                    ></Inventory>)
+                }
+               </div>
+
+            </div>
         </div>
     );
 };
