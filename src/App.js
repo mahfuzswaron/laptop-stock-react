@@ -10,6 +10,7 @@ import ManageInventories from './components/pages/ManageInventories/ManageInvent
 import Registar from './components/pages/Registar/Registar';
 import Login from './components/pages/Login/Login';
 import RequireAuth from './components/shared/RequireAuth/RequireAuth';
+import Blogs from './components/pages/Blogs/Blogs';
 function App() {
   return (
     <div>
@@ -29,6 +30,7 @@ function App() {
         </RequireAuth>}></Route>
         <Route path='/registar' element={<Registar></Registar>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
+        <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
