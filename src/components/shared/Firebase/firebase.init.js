@@ -11,7 +11,7 @@ const firebaseConfig = {
   projectId: "laptop-stock-new",
   storageBucket: "laptop-stock-new.appspot.com",
   messagingSenderId: "949447590831",
-  appId: process.env.API_ID
+  appId: `1:949447590831:web:563641476c8be58190655a`
 };
 
 // Initialize Firebase
