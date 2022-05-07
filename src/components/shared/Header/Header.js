@@ -1,7 +1,7 @@
 import { signOut } from 'firebase/auth';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import auth from '../Firebase/firebase.init';
 const style = {
     'backgroundColor': 'blue',
@@ -10,6 +10,7 @@ const style = {
 
 const Header = () => {
     const [user, loading, error] = useAuthState(auth);
+    const navigate = useNavigate();
     if (loading) {
         return <p>loading...</p>
     }
@@ -17,8 +18,9 @@ const Header = () => {
         console.log('user nai')
     }
 
-    const handleSignOut = () =>{
-        signOut(auth)
+    const handleSignOut =async () =>{
+        await signOut(auth)
+        navigate('/registar')
     }
     return (
         <nav className='mx-auto sticky top-0 z-10 '>

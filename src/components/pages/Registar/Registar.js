@@ -1,6 +1,6 @@
 import { async } from '@firebase/util';
 import React, { useState } from 'react';
-import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSendEmailVerification, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../shared/Firebase/firebase.init'
 const Registar = () => {
@@ -10,17 +10,20 @@ const Registar = () => {
   loading,
   error,
   ] = useCreateUserWithEmailAndPassword(auth);
+  const [sendEmailVerification, sending, verificationError] = useSendEmailVerification(auth);
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
   const navigate = useNavigate();
   
-  if (loading || updating) {
+  if (loading || updating || sending) {
     return <div>
       <p>loading...</p>
     </div>
   }
+
   if (user) {
     console.log(user)
     window.alert(`user is registared`);
+    
     return <p>succeed</p>
   }
 
@@ -30,10 +33,10 @@ const Registar = () => {
     const displayName = e.target.name.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
-    // const address = e.target.address.value;
-    const phoneNumber = e.target.phone.value;
     await createUserWithEmailAndPassword(email, password);
-    updateProfile({ displayName, phoneNumber });
+    updateProfile({ displayName });
+    await sendEmailVerification();
+    alert(`sent verification email to ${email}. Haven't get? check spam folder `)
     navigate('/');
     
   }
@@ -45,11 +48,9 @@ const Registar = () => {
                 <input required className='border p-2' type={'text'} name={'name'} placeholder='Name'/>
                 <input required className='border p-2' type={'email'} name={'email'} placeholder='Email Address' />
                 <input required className='border p-2' type={'password'} name='password' placeholder='Create a strong password' />
-                <textarea className='border p-2' resize='horizontal' type={'text'} name={'address'} placeholder='Address'/>
-                <input className='border p-2' type={'tel'} name={'phone'} placeholder="Phone Number"/>
                 <button className='p-2 bg-blue-500 text-white bg-blue-500 rounded' type={'submit'}>Registar</button>
                 {
-                  (error || updateError) && <p className='text-red-500'>{ error?.message || updateError?.message }</p>
+                  (error || updateError || verificationError) && <p className='text-red-500'>{ error?.message || updateError?.message } || {verificationError.message}</p>
                 }
           </form>
           <p>Have an account? <Link className='hover:text-blue-500 underline' to={'/login'}>Login here</Link></p>
