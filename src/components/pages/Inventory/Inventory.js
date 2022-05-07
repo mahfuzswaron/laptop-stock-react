@@ -5,7 +5,7 @@ const Inventory = (props) => {
     const {inventory} = props;
     const {name, description, price, supplier, quantity, img, _id} = inventory;
     return (
-        <div className='flex bg-white border hover:drop-shadow-xl p-3 m-5'>
+        <div className='flex rounded-lg bg-white border hover:drop-shadow-xl p-3 hover:border-blue-500 hover:border-2xl m-5'>
 
             <div className='card-img w-2/5'>
                 <img className='w-64' src={img} alt={name} />
