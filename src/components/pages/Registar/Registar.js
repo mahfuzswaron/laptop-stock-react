@@ -1,6 +1,7 @@
+import { async } from '@firebase/util';
 import React, { useState } from 'react';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../shared/Firebase/firebase.init'
 const Registar = () => {
   const [
@@ -9,8 +10,10 @@ const Registar = () => {
   loading,
   error,
   ] = useCreateUserWithEmailAndPassword(auth);
+  const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+  const navigate = useNavigate();
   
-  if (loading) {
+  if (loading || updating) {
     return <div>
       <p>loading...</p>
     </div>
@@ -21,15 +24,17 @@ const Registar = () => {
     return <p>succeed</p>
   }
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
 
-    const name = e.target.name.value;
+    const displayName = e.target.name.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
-    const address = e.target.address.value;
-    const phone = e.target.phone.value;
-    createUserWithEmailAndPassword(email, password)
+    // const address = e.target.address.value;
+    const phoneNumber = e.target.phone.value;
+    await createUserWithEmailAndPassword(email, password);
+    updateProfile({ displayName, phoneNumber });
+    navigate('/');
     
   }
     return (
@@ -44,7 +49,7 @@ const Registar = () => {
                 <input className='border p-2' type={'tel'} name={'phone'} placeholder="Phone Number"/>
                 <button className='p-2 bg-blue-500 text-white bg-blue-500 rounded' type={'submit'}>Registar</button>
                 {
-                  error && <p className='text-red-500'>{ error.message}</p>
+                  (error || updateError) && <p className='text-red-500'>{ error?.message || updateError?.message }</p>
                 }
           </form>
           <p>Have an account? <Link className='hover:text-blue-500 underline' to={'/login'}>Login here</Link></p>
