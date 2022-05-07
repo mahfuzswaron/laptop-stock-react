@@ -100,7 +100,7 @@ const ManageInventories = () => {
           path === 'manageinventories' && 
           <>
           <hr className='my-5 w-3/5 mx-auto'></hr>
-          <div className='mx-auto'>
+          <div className='mx-auto' id='add-items'>
             <h3 className='text-center text-blue-500 text-3xl font-semibold my-5'>Add Inventory</h3>
             <div className='mx-auto w-1/2'>
               <form onSubmit={(e)=> handleAdd(e)} className='flex flex-col space-y-4'>
