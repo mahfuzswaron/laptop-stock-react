@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import auth from '../shared/Firebase/firebase.init'
+import { Link } from 'react-router-dom';
+import auth from '../../shared/Firebase/firebase.init'
 const Registar = () => {
   const [
   createUserWithEmailAndPassword,
@@ -50,12 +51,12 @@ const Registar = () => {
                 {
                   error && <p>{ errorMsg}</p>
                 }
-              </form>
+          </form>
+          <p>Have an account? <Link className='hover:text-blue-500 underline' to={'/login'}>Login here</Link></p>
             </div>
         </div>
     );
 };
-// onSubmit={(e)=> handleAdd(e)}
 
 export default Registar;
 /* 
