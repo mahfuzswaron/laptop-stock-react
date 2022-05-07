@@ -27,6 +27,7 @@ const Header = () => {
                         ?
                         <>
                         <Link className='hover:font-bold' to={'/manageinventories'}>MANAGE INVENTORIES</Link>
+                        <Link className='hover:font-bold' to={'/manageinventories#add-items'}>ADD ITEMS</Link>
                         <Link className='hover:font-bold' to={'/myitems'}>MY ITEMS</Link>
                         <Link className='hover:font-bold' to={'/blogs'}>BLOGS</Link>
                         <p className='hover:font-bold' style={{'cursor': 'pointer'}} onClick={handleSignOut}>LOG OUT</p>
