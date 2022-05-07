@@ -9,12 +9,7 @@ const Registar = () => {
   loading,
   error,
   ] = useCreateUserWithEmailAndPassword(auth);
-  const [errorMsg, setErrorMsg] = useState('');
   
-  if (error) {
-    setErrorMsg(error.message);
-    return <p>error: { errorMsg}</p>
-  }
   if (loading) {
     return <div>
       <p>loading...</p>
@@ -49,7 +44,7 @@ const Registar = () => {
                 <input className='border p-2' type={'tel'} name={'phone'} placeholder="Phone Number"/>
                 <button className='p-2 bg-blue-500 text-white bg-blue-500 rounded' type={'submit'}>Registar</button>
                 {
-                  error && <p>{ errorMsg}</p>
+                  error && <p className='text-red-500'>{ error.message}</p>
                 }
           </form>
           <p>Have an account? <Link className='hover:text-blue-500 underline' to={'/login'}>Login here</Link></p>
