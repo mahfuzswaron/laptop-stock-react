@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Bar, BarChart, Legend, ResponsiveContainer, Tooltip } from 'recharts';
+import { Bar, BarChart, Legend, Tooltip } from 'recharts';
 import UseInventories from '../../../hooks/UseInventories';
 import Calculator from '../Calculator/Calculator';
 import Inventory from '../Inventory/Inventory';
@@ -53,7 +53,7 @@ const Home = () => {
 
             {/* graph chart section starts */}
             <section className=''>
-                <h3 className='text-3xl text-blue-500 font-semibold text-center my-10'>Sale Analytics</h3>
+                <h3 className='text-3xl text-blue-500 font-semibold text-center my-10'>Sale Analytics Chart</h3>
                 <div className='flex justify-center mx-auto '>
                     <BarChart className='' width={800} height={400} data={inventories}>
                     <Bar dataKey="sold" fill="#8884d8" />

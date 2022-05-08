@@ -8,7 +8,8 @@ const Blogs = () => {
             .then(res => res.json())
             .then(data => setQnAs(data))
         
-    }, [qnas])
+    }, [qnas]);
+    console.log(qnas)
     return (
         <div>
             <h1 className='text-4xl text-blue-500 font-semibold text-center my-10'>Blogs</h1>
