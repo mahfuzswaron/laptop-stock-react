@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import UseInventories from '../../../hooks/UseInventories';
 import Inventory from '../Inventory/Inventory';
 
@@ -19,6 +20,10 @@ const Inventories = () => {
                     ></Inventory>)
                 }
             </div>
+            {
+                inventories.length > 0
+                &&
+                <button className='w-48 py-2 px-5 flex mx-auto hover:bg-blue-700 text-white bg-blue-500 rounded'><Link to={'/manageinventories'}>Manage Inventories</Link></button>}
         </div>
     );
 };

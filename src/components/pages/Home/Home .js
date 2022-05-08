@@ -33,8 +33,15 @@ const Home = () => {
                     ></Inventory>)
                 }
                 </div>
-                <button className='py-2 px-5 mx-auto flex justify-center  hover:bg-blue-700 text-white bg-blue-500 rounded' type={'submit'}><Link to={'/inventories'}>See All</Link></button>
-
+                {
+                    inventories.length > 0
+                    &&
+                    <div className='flex justify-center space-x-4 mx-auto'>
+                        <button className='w-48 py-2 px-5 hover:bg-blue-700 text-white bg-blue-500 rounded'><Link to={'/inventories'}>See All</Link></button>
+                        <button className='w-48 py-2 px-5 hover:bg-blue-700 text-white bg-blue-500 rounded'><Link to={'/manageinventories'}>Manage Inventories</Link></button>
+                        
+                    </div>            
+}
             </div>
         </div>
     );
