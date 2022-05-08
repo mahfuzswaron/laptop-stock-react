@@ -1,7 +1,14 @@
+import { css } from '@emotion/react';
 import React from 'react';
 import { useCreateUserWithEmailAndPassword, useSendEmailVerification, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
-import auth from '../../shared/Firebase/firebase.init'
+import { BeatLoader } from 'react-spinners';
+import auth from '../../shared/Firebase/firebase.init';
+const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+`;
 const Registar = () => {
   const [
   createUserWithEmailAndPassword,
@@ -14,9 +21,9 @@ const Registar = () => {
   const navigate = useNavigate();
   
   if (loading || updating || sending) {
-    return <div>
-      <p>loading...</p>
-    </div>
+    return <div className='flex justify-center items-center'>
+            <BeatLoader loading={loading || updating || sending} color={'blue'} style={override} size={10}></BeatLoader>
+        </div>
   }
 
   if (user) {

@@ -1,10 +1,16 @@
+import { css } from '@emotion/react';
 import React from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { BeatLoader } from 'react-spinners';
 import auth from '../../shared/Firebase/firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
 
-
+const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+`;
 const Login = () => {
     const [
   signInWithEmailAndPassword,
@@ -27,7 +33,9 @@ let from = location.state?.from?.pathname || "/";
     }
     
     if (loading) {
-        return <p>loading...</p>
+        return <div className='flex justify-center items-center'>
+            <BeatLoader loading={loading} color={'blue'} style={override} size={10}></BeatLoader>
+        </div>
     }
     if (user) {
         navigate(from, { replace: true });

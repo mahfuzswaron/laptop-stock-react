@@ -1,17 +1,27 @@
+import { css } from '@emotion/react';
 import { signOut } from 'firebase/auth';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import { BounceLoader } from 'react-spinners';
 import auth from '../Firebase/firebase.init';
 const style = {
     'backgroundColor': 'blue',
     'opacity': '50%'
-}
+};
+
+const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+`;
 
 const Header = () => {
     const [user, loading] = useAuthState(auth);
     if (loading) {
-        return <p>loading...</p>
+        return <div className='flex justify-center items-center'>
+            <BounceLoader loading={loading} color={'blue'} style={override} size={10}></BounceLoader>
+        </div>
     }
     const handleSignOut =async () =>{
         await signOut(auth)
