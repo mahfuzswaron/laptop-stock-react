@@ -67,7 +67,7 @@ const ManageInventories = () => {
           (path === 'manageinventories' && inventories.length > 0) && 
           <>
           <hr className='my-5 w-3/5 mx-auto'></hr>
-            <button className='p-2 text-white bg-blue-500 rounded mx-auto flex justify-center'>
+            <button className='w-48 p-2 text-white bg-green-500 rounded mx-auto flex justify-center'>
               <Link to='/additem'>Add New Item</Link>
           </button>
           </>

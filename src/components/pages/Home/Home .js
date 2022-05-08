@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import UseInventories from '../../../hooks/UseInventories';
-import Inventories from '../Inventories/Inventories';
 import Inventory from '../Inventory/Inventory';
 
 const Home = () => {
@@ -11,7 +10,7 @@ const Home = () => {
         <div>
             <div className='flex items-start'>
                 <div className='mt-10 ml-5 w-1/2'>
-                    <h1 className='text-6xl font-semibold text-slate-500 '>Welcome to <span className='block mt-1 text-7xl text-blue-500'>Laptop Stock</span></h1>
+                    <h1 className='text-6xl font-semibold text-gray-500 '>Welcome to <span className='block mt-1 text-7xl text-blue-500'>Laptop Stock</span></h1>
                     <p className='mt-5'>
                         Laptop Stock is a place where the world's best Laptops are stored. Browse the app to add yours and manage them.
                         Have a nice day. 

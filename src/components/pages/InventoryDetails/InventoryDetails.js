@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import useInventory from '../../../hooks/useInventory';
 
 
@@ -44,28 +44,31 @@ const InventoryDetails = () => {
     }
 
     return (
-        <div className='flex bg-white border hover:drop-shadow-xl p-5 m-5'>
+        <div className='bg-white border hover:drop-shadow-xl p-5 m-5'>
 
-        <div className='card-img w-2/5 flex justify-center'>
+        <div className='flex '>
+            <div className='card-img w-2/5 flex justify-center'>
             <img className='w-96' src={img} alt={name} />
-        </div>
+            </div>
 
-        <div className='card-body w-3/5'>
-        <h3  className='text-2xl text-blue-400 font-medium'>{name}</h3>
-        <p className='mt-1'>Product id: {_id}</p>
-        <p className='mt-1'>{description}</p>
-        <p className='mt-1'><strong>${price}</strong></p>
-        <p className='mt-1'>{sold} sold</p>
-        <p className='mt-1'>{quantity} available </p>
-        <p className='mt-1'>Supplier: {supplier}</p>
-        <button 
-        className='bg-green-400 hover:bg-green-500 px-3 py-2 mt-2 rounded text-white' 
-        onClick={() => handleQuantity(false)}
-        >Delevered</button>
-        <hr className='my-2'></hr>
-        <input onBlur={(e)=> e.target.value = ''} onChange={(e)=> setNewQuantity(e.target.value)} className='border block px-3 py-2 mt-2' type={'number'}  />
-        <button onClick={() => {handleQuantity(true)}} className='bg-blue-400 hover:bg-blue-500 px-3 py-2 mt-2 rounded text-white block' >Add Product(s)</button>
-        </div>
+            <div className='card-body w-3/5'>
+            <h3  className='text-2xl text-blue-400 font-medium'>{name}</h3>
+            <p className='mt-1'>Product id: {_id}</p>
+            <p className='mt-1'>{description}</p>
+            <p className='mt-1'><strong>${price}</strong></p>
+            <p className='mt-1'>{sold} sold</p>
+            <p className='mt-1'>{quantity} available </p>
+            <p className='mt-1'>Supplier: {supplier}</p>
+            <button 
+            className='bg-green-400 hover:bg-green-500 px-3 py-2 mt-2 rounded text-white' 
+            onClick={() => handleQuantity(false)}
+            >Delevered</button>
+            <hr className='my-2'></hr>
+            <input onBlur={(e)=> e.target.value = ''} onChange={(e)=> setNewQuantity(e.target.value)} className='border block px-3 py-2 mt-2' type={'number'}  />
+            <button onClick={() => {handleQuantity(true)}} className='bg-blue-400 hover:bg-blue-500 px-3 py-2 mt-2 rounded text-white block' >Add Product(s)</button>
+            </div>
+            </div>
+        <button className='w-48 flex mx-auto mt-10 mb-5 py-2 px-5 text-white bg-blue-500 hover:bg-blue-700 rounded'><Link to={'/manageinventories'}>Manage Inventories</Link></button>
         </div>
     );
 };

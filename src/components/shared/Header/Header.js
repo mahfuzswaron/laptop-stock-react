@@ -1,7 +1,7 @@
 import { signOut } from 'firebase/auth';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import auth from '../Firebase/firebase.init';
 const style = {
     'backgroundColor': 'blue',
@@ -9,7 +9,7 @@ const style = {
 }
 
 const Header = () => {
-    const [user, loading, error] = useAuthState(auth);
+    const [user, loading] = useAuthState(auth);
     if (loading) {
         return <p>loading...</p>
     }
