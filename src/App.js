@@ -14,7 +14,7 @@ import Blogs from './components/pages/Blogs/Blogs';
 import AddItem from './components/pages/AddItem/AddItem';
 function App() {
   return (
-    <div>
+    <div className=''>
       <Header></Header>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
@@ -32,7 +32,7 @@ function App() {
         <Route path='/additem' element={<RequireAuth>
           <AddItem></AddItem>
         </RequireAuth>}></Route>
-        
+
         <Route path='/registar' element={<Registar></Registar>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
