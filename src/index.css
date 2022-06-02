@@ -15,3 +15,21 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.btn-primary{
+  background-color: #0030B8;
+  color: white;
+  padding: 0.90rem 0.99rem;
+  margin-top: 10px;
+  border: none;
+  border-radius: 0.45rem;
+}
+.btn-primary:hover svg{
+  width: 30px;
+}
+.btn-primary:focus{
+  border: #0043fa;
+  -webkit-transform: scale(0.8);
+        -ms-transform: scale(0.8);
+        transform: scale(0.8);
+}
