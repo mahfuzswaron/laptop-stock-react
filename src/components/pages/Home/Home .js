@@ -69,7 +69,7 @@ const Home = () => {
             </section>
 
             {/* graph chart section starts */}
-            <section className='mt-20 mb-10 w-full h-[500px]'>
+            <section className='mt-20 mb-10 w-screen lg:h-[500px] sm:h-[250px]'>
                 <h3 className='text-4xl text-primary font-semibold text-center mb-5'>Sale Analytics Chart</h3>
                 <div className='flex justify-center mx-auto w-full h-4/5'>
                     <ResponsiveContainer width="90%" height="100%">
