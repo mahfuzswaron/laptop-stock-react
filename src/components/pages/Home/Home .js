@@ -55,8 +55,8 @@ const Home = () => {
                     inventories.length > 0
                     &&
                     <div className='flex justify-center space-x-4 mx-auto'>
-                        <button className='w-48 py-2 px-5 hover:bg-blue-700 text-white bg-blue-500 rounded'><Link to={'/inventories'}>See All</Link></button>
-                        <button className='w-48 py-2 px-5 hover:bg-blue-700 text-white bg-blue-500 rounded'><Link to={'/manageinventories'}>Manage Inventories</Link></button>
+                        <button className='btn btn-primary px-4 py-3 mt-2 w-48 rounded'><Link to={'/inventories'}>See All</Link></button>
+                        <button className='btn btn-primary btn-outline px-4 py-3 mt-2 w-48 rounded'><Link to={'/manageinventories'}>Manage Inventories</Link></button>
                     </div>
 
                 }
