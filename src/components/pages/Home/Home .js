@@ -22,7 +22,7 @@ const Home = () => {
     return (
         <div>
             <section className='flex items-center bg-[#EFEFEF]'>
-                <div className='flex items-start mx-[150px]'>
+                <div className='flex items-start mx-20'>
                     <div className='mt-10  w-1/2'>
                         <h1 className='text-6xl font-semibold text-seconary '>Welcome to <span className='block mt-1 text-7xl text-primary'>Laptop Stock</span></h1>
                         <p className='mt-5'>

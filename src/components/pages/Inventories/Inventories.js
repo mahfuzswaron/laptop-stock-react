@@ -14,23 +14,18 @@ const override = css`
 
 const Inventories = () => {
     const [inventories] = UseInventories([]);
-    // const [loading, setLoading] = useState(false)
-
-    // if(!inventories){
-    //     const set = async () => await setLoading(true)
-    //     set();
-    //     // return <p>loading...</p>
-    // }
-    // if (loading) {
-    //     return 
-    // }
+    if (!inventories?.length) {
+        return <div className='flex justify-center items-center h-screen'>
+            <BeatLoader loading={true} color={'blue'} style={override} size={10}></BeatLoader>
+        </div>
+    }
     return (
         <div>
-            <BeatLoader loading={!inventories} color={'blue'} style={override} size={150}></BeatLoader>
+
             <h1 className='text-blue-500 font-semibold text-center text-4xl'>Inventories ({inventories?.length})</h1>
             <div className='grid grid-cols-2 mt-5 '>
                 {
-                    inventories.map(inv => <Inventory 
+                    inventories.map(inv => <Inventory
                         key={inv._id}
                         inventory={inv}
                     ></Inventory>)

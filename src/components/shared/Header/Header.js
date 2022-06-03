@@ -27,8 +27,8 @@ const Header = () => {
         await signOut(auth)
     }
     return (
-        <nav className='mx-auto bg-white sticky top-0 z-10 '>
-            <div className='flex justify-around items-center mb-5 py-10 mx-auto text-[#666666] font-bold bg-white h-16 '>
+        <nav className=' bg-white sticky top-0 z-10 '>
+            <div className='flex justify-between items-center mx-20 mb-1 py-10 text-[#666666] font-bold bg-white h-16 '>
                 <div>
                     <h3 className='text-3xl font-bold'>
                         <Link to={'/home'}><span className='text-[#0030B8]'>Laptop</span> Stock</Link>
