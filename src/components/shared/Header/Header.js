@@ -53,16 +53,12 @@ const Header = () => {
                             :
                             <>
                                 <Link className='border-b-2 border-double border-transparent hover:border-[#0030B8]' to={'/blogs'}>BLOGS</Link>
+                                <Link className='border-b-2 border-double border-transparent hover:border-[#0030B8]' to={'/login'}>LOG IN</Link>
                             </>
                     }
                 </div>
-                <div>
-                    {
-                        !user && <Link className='border-b-2 border-double border-transparent hover:border-[#0030B8]' to={'/login'}>LOG IN</Link>
-                    }
-                </div>
             </div>
-        </nav>
+        </nav >
     );
 };
 
