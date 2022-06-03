@@ -44,7 +44,7 @@ const Login = () => {
         <div>
             <h3 className='text-center text-primary text-4xl font-semibold my-5'>Please Login</h3>
             <div className='mx-auto w-1/2'>
-                <form onSubmit={(e) => handleSubmit(e)} className='flex flex-col space-y-4'>
+                <form onSubmit={(e) => handleSubmit(e)} className='flex flex-col space-y-2'>
                     <input required className='border p-2 rounded-lg' type={'email'} name={'email'} placeholder='Email Address' />
                     <input required className='border p-2 rounded-lg' type={'password'} name='password' placeholder='Your Password' />
                     <button className='p-2 btn btn-primary' type={'submit'}>Login</button>
