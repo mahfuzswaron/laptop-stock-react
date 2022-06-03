@@ -64,13 +64,13 @@ const Home = () => {
             {/* -------------------- */}
 
             {/* Calculator section starts  */}
-            <section>
+            <section className='bg-[#EFEFEF] py-20'>
                 <Calculator></Calculator>
             </section>
 
             {/* graph chart section starts */}
-            <section className=''>
-                <h3 className='text-3xl text-blue-500 font-semibold text-center my-10'>Sale Analytics Chart</h3>
+            <section className='mt-20 mb-10'>
+                <h3 className='text-4xl text-primary font-semibold text-center '>Sale Analytics Chart</h3>
                 <div className='flex justify-center mx-auto '>
                     <BarChart className='' width={800} height={400} data={inventories}>
                         <Bar dataKey="sold" fill="#8884d8" />
