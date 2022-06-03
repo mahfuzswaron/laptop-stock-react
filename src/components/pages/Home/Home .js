@@ -70,18 +70,19 @@ const Home = () => {
 
             {/* graph chart section starts */}
             <section className='mt-20 mb-10'>
-                <h3 className='text-4xl text-primary font-semibold text-center '>Sale Analytics Chart</h3>
+                <h3 className='text-4xl text-primary font-semibold text-center mb-5'>Sale Analytics Chart</h3>
                 <div className='flex justify-center mx-auto '>
                     <BarChart className='' width={800} height={400} data={inventories}>
-                        <Bar dataKey="sold" fill="#8884d8" />
+                        <Bar dataKey="sold" stackId="a" fill="#0490f4" />
+                        <Bar dataKey="quantity" stackId="a" fill="#0031B8" />
                         <Tooltip></Tooltip>
-                        <Legend></Legend>
+                        <Legend verticalAlign="top" height={36}></Legend>
                     </BarChart>
                 </div>
 
 
-            </section>
-        </div>
+            </section >
+        </div >
     );
 };
 
