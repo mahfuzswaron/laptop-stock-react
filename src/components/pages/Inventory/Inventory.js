@@ -17,7 +17,7 @@ const Inventory = (props) => {
                 <p className='mt-1'><strong>${price}</strong></p>
                 <p className='mt-1'>{quantity} available </p>
                 <p className='mt-1'>Supplier: {supplier}</p>
-                <button className='btn-primary px-3 py-2 mt-2 w-2/3 rounded text-white '><Link to={`/inventory/${_id}`}>Update</Link></button>
+                <button className='btn btn-primary  mt-2 w-2/3 text-white '><Link to={`/inventory/${_id}`}>Update</Link></button>
             </div>
         </div>
     );
