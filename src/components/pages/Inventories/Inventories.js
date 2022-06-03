@@ -20,10 +20,10 @@ const Inventories = () => {
         </div>
     }
     return (
-        <div>
+        <section className='mt-10'>
+            <h1 className='text-primary font-semibold text-center text-4xl'>Inventories</h1>
 
-            <h1 className='text-blue-500 font-semibold text-center text-4xl'>Inventories ({inventories?.length})</h1>
-            <div className='grid grid-cols-2 mt-5 '>
+            <div className='grid grid-cols-3 mt-5 '>
                 {
                     inventories.map(inv => <Inventory
                         key={inv._id}
@@ -31,11 +31,10 @@ const Inventories = () => {
                     ></Inventory>)
                 }
             </div>
-            {
-                inventories.length > 0
-                &&
-                <button className='w-48 py-2 px-5 flex mx-auto hover:bg-blue-700 text-white bg-blue-500 rounded'><Link to={'/manageinventories'}>Manage Inventories</Link></button>}
-        </div>
+            <div className='flex justify-center'>
+                <button className='btn btn-primary btn-outline mt-2 w-48 '><Link to={'/manageinventories'}>Manage Inventories</Link></button>
+            </div>
+        </section>
     );
 };
 

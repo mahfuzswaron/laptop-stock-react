@@ -21,18 +21,18 @@ const SocialLogin = () => {
     }
 
     if (user) {
-        return  navigate(from, { replace: true });
+        return navigate(from, { replace: true });
     }
     if (error) {
-        return <p>{ error.message}</p>
+        return <p>{error.message}</p>
     }
-    const handleLogIn = () => { 
+    const handleLogIn = () => {
         signInWithFacebook()
     }
 
     return (
         <div>
-            <button onClick={handleLogIn} className='bg-blue-600 hover:bg-blue-700 px-5 py-3 my-5 text-white rounded flex mx-auto'>Login With Facebook</button>
+            <button onClick={handleLogIn} className='btn btn-primary btn-outline mt-2 w-56 my-5 flex mx-auto'>Login With Facebook</button>
         </div>
     );
 };
