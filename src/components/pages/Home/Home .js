@@ -55,8 +55,8 @@ const Home = () => {
                     inventories.length > 0
                     &&
                     <div className='flex justify-center space-x-4 mx-auto'>
-                        <button className='btn btn-primary mt-2 w-48 '><Link to={'/inventories'}>See All</Link></button>
-                        <button className='btn btn-primary btn-outline mt-2 w-48 '><Link to={'/manageinventories'}>Manage Inventories</Link></button>
+                        <button className='btn btn-primary mt-2 lg:w-48 sm:w-5 '><Link to={'/inventories'}>See All</Link></button>
+                        <button className='btn btn-primary btn-outline mt-2 lg:w-48 sm:w-5'><Link to={'/manageinventories'}>Manage Inventories</Link></button>
                     </div>
 
                 }
@@ -69,10 +69,10 @@ const Home = () => {
             </section>
 
             {/* graph chart section starts */}
-            <section className='mt-20 mb-10'>
+            <section className='mt-20 mb-10 w-full h-[500px]'>
                 <h3 className='text-4xl text-primary font-semibold text-center mb-5'>Sale Analytics Chart</h3>
-                <div className='flex justify-center mx-auto '>
-                    <ResponsiveContainer width="90%" height="45%">
+                <div className='flex justify-center mx-auto w-full h-4/5'>
+                    <ResponsiveContainer width="90%" height="100%">
                         <BarChart data={inventories}>
                             <Bar dataKey="sold" stackId="a" fill="#0490f4" />
                             <Bar dataKey="quantity" stackId="a" fill="#0031B8" />
