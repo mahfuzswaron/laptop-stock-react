@@ -28,7 +28,7 @@ const Header = () => {
     }
     return (
         <nav className=' bg-white sticky top-0 z-10 '>
-            <div className='flex justify-between items-center mx-20 py-10 text-[#666666] font-medium bg-white h-16 '>
+            <div className='flex justify-between items-center lg:mx-20 py-10 text-[#666666] font-medium bg-white h-16 '>
                 <div>
                     <h3 className='text-3xl text-secondary font-bold'>
                         <Link to={'/home'}><span className='text-primary'>Laptop</span> Stock</Link>

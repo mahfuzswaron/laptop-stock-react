@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { BeatLoader } from 'react-spinners';
-import { Bar, BarChart, Legend, Tooltip } from 'recharts';
+import { Bar, BarChart, Legend, ResponsiveContainer, Tooltip } from 'recharts';
 import UseInventories from '../../../hooks/UseInventories';
 import Calculator from '../Calculator/Calculator';
 import Inventory from '../Inventory/Inventory';
@@ -72,12 +72,14 @@ const Home = () => {
             <section className='mt-20 mb-10'>
                 <h3 className='text-4xl text-primary font-semibold text-center mb-5'>Sale Analytics Chart</h3>
                 <div className='flex justify-center mx-auto '>
-                    <BarChart className='' width={800} height={400} data={inventories}>
-                        <Bar dataKey="sold" stackId="a" fill="#0490f4" />
-                        <Bar dataKey="quantity" stackId="a" fill="#0031B8" />
-                        <Tooltip></Tooltip>
-                        <Legend verticalAlign="top" height={36}></Legend>
-                    </BarChart>
+                    <ResponsiveContainer width="90%" height="45%">
+                        <BarChart data={inventories}>
+                            <Bar dataKey="sold" stackId="a" fill="#0490f4" />
+                            <Bar dataKey="quantity" stackId="a" fill="#0031B8" />
+                            <Tooltip></Tooltip>
+                            <Legend verticalAlign="top" height={36}></Legend>
+                        </BarChart>
+                    </ResponsiveContainer>
                 </div>
 
 
