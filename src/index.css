@@ -7,6 +7,7 @@ body {
   font-family: 'Poppins';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: white;
 }
 
 code {
@@ -14,7 +15,7 @@ code {
     monospace;
 }
 
-.btn-primary{
+/* .btn-primary{
   background-color: #0030B8;
   color: white;
   padding: 0.90rem 0.99rem;
@@ -34,4 +35,3 @@ code {
     background-size: 200% 100%;
     background-color: #049ce5;
     background-position: right bottom; */
-}

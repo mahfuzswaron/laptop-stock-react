@@ -14,7 +14,7 @@ import Blogs from './components/pages/Blogs/Blogs';
 import AddItem from './components/pages/AddItem/AddItem';
 function App() {
   return (
-    <div className=''>
+    <div className='m-0'>
       <Header></Header>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>

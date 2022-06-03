@@ -22,20 +22,20 @@ const Home = () => {
     return (
         <div>
             <section className='flex items-center bg-[#EFEFEF]'>
-                <div className='flex items-start mx-20'>
-                    <div className='mt-10  w-1/2'>
-                        <h1 className='text-6xl font-semibold text-seconary '>Welcome to <span className='block mt-1 text-7xl text-primary'>Laptop Stock</span></h1>
+                <div className='flex items-center mx-20'>
+                    <div className='w-1/2 h-1/2'>
+                        <h1 className='text-6xl font-semibold text-seconary '>Welcome to <span className='block text-7xl text-primary'>Laptop Stock</span></h1>
                         <p className='mt-5'>
                             Laptop Stock is a place where the world's best Laptops are stored. Browse the app to add yours and manage them.
                             Have a nice day.
                         </p>
-                        <button className=' btn-primary '><Link to={'/inventories'}>Let's Start <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline" viewBox="0 0 20 20" fill="currentColor">
+                        <button className='btn btn-primary btn-outline mt-3'><Link to={'/inventories'}>Let's Start <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
                         </svg></Link></button>
 
                     </div>
-                    <div className=' right-5 w-1/2'>
-                        <img className='relative left-16 bottom-10' src='https://i.ibb.co/vvsJwwx/laptop-vector-01.png' alt='laptop' />
+                    <div className='w-1/2 h-1/2 flex justify-center items-start'>
+                        <img className='w-4/5' src='https://i.ibb.co/vvsJwwx/laptop-vector-01.png' alt='laptop' />
                     </div>
                 </div>
             </section>
