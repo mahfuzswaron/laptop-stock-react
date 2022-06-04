@@ -41,9 +41,9 @@ const Home = () => {
             </section>
 
             {/* inventories section starts */}
-            <section className='my-10 mx-20'>
-                <h1 className='text-primary font-semibold text-center text-4xl'>Inventories ({inventories6?.length}/{inventories?.length})</h1>
-                <div className='grid grid-cols-3 mt-5 '>
+            <section className='my-10 mx-10 lg:mx-20'>
+                <h1 className='text-primary font-semibold text-center text-2xl lg:text-4xl'>Inventories ({inventories6?.length}/{inventories?.length})</h1>
+                <div className='grid grid-cols-1 lg:grid-cols-3 mt-5 mb-3'>
                     {
                         inventories6.map(inv => <Inventory
                             key={inv._id}

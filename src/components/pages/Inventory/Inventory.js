@@ -5,7 +5,7 @@ const Inventory = (props) => {
     const { inventory } = props;
     const { name, description, price, supplier, quantity, img, _id } = inventory;
     return (
-        <div className='flex-col items-center justify-center rounded-lg bg-white  drop-shadow-xl p-3 m-5'>
+        <div className='flex-col items-center justify-center rounded-lg bg-white  drop-shadow-xl p-3 m-1 lg:m-5'>
 
             <div className='card-img flex justify-center items-center'>
                 <img className='w-3/5' src={img} alt={name} />
