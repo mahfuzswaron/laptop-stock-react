@@ -69,9 +69,9 @@ const Home = () => {
             </section>
 
             {/* graph chart section starts */}
-            <section className='mt-20 mb-10 w-full lg:h-[500px] sm:h-[250px]'>
-                <h3 className='text-4xl text-primary font-semibold text-center mb-5'>Sale Analytics Chart</h3>
-                <div className='flex justify-center mx-auto lg:w-full sm:w-full h-4/5'>
+            <section className='mt-20 mb-10 w-full lg:h-[500px] h-[250px]'>
+                <h3 className='lg:text-4xl text-2xl text-primary font-semibold text-center mb-5'>Sale Analytics Chart</h3>
+                <div className='flex justify-center mx-auto w-full  h-4/5'>
                     <ResponsiveContainer width="90%" height="100%">
                         <BarChart data={inventories}>
                             <Bar dataKey="sold" stackId="a" fill="#0490f4" />

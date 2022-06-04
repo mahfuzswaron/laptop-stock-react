@@ -13,7 +13,7 @@ const Calculator = () => {
 
     return (
         <div className='lg:w-1/3 w-4/5 mx-auto'>
-            <h3 className='lg:text-4xl text-2xl text-primary font-semibold text-center mb-10'>Total Price Calculator</h3>
+            <h3 className='lg:text-4xl text-2xl text-primary font-semibold text-center mb-5'>Price Calculator</h3>
             <div className='display w-full h-24 border flex justify-center items-center text-2xl rounded-lg bg-white'>
                 <p>${total}</p>
             </div>

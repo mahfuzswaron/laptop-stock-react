@@ -21,9 +21,9 @@ const Inventories = () => {
     }
     return (
         <section className='mt-10'>
-            <h1 className='text-primary font-semibold text-center text-4xl'>Inventories</h1>
+            <h1 className='text-primary font-semibold text-center lg:text-4xl text-3xl'>Inventories</h1>
 
-            <div className='grid grid-cols-3 mt-5 '>
+            <div className='grid grid-cols-1 lg:grid-cols-3 mt-5 '>
                 {
                     inventories.map(inv => <Inventory
                         key={inv._id}
