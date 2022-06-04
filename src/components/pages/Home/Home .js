@@ -35,14 +35,14 @@ const Home = () => {
 
                     </div>
                     <div className='w-1/2 h-1/2 flex justify-center items-start'>
-                        <img className='w-4/5' src='https://i.ibb.co/vvsJwwx/laptop-vector-01.png' alt='laptop' />
+                        <img className='lg:w-4/5 w-full' src='https://i.ibb.co/vvsJwwx/laptop-vector-01.png' alt='laptop' />
                     </div>
                 </div>
             </section>
 
             {/* inventories section starts */}
             <section className='my-10 reveal mx-10 lg:mx-20'>
-                <h1 className='text-primary font-semibold text-center text-2xl lg:text-4xl'>Inventories ({inventories6?.length}/{inventories?.length})</h1>
+                <h1 className='text-primary font-semibold text-center text-2xl lg:text-4xl'>Inventories</h1>
                 <div className='grid grid-cols-1 lg:grid-cols-3 mt-5 mb-3'>
                     {
                         inventories6.map(inv => <Inventory

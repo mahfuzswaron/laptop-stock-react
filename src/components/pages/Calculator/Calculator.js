@@ -22,7 +22,7 @@ const Calculator = () => {
                     <input required className='w-1/2 input input-bordered bg-white m-1 ml-0' type={'number'} name='quantity' placeholder='quantity' />
                     <input required className='w-1/2 input input-bordered bg-white m-1 mr-0' type={'number'} name='price' placeholder='price' />
                 </div>
-                <button className='btn btn-secondary w-full font-bold text-3xl' type='submit' >=</button>
+                <button className='btn btn-primary w-full font-bold text-3xl' type='submit' >=</button>
             </form>
 
         </div>

@@ -50,7 +50,7 @@ const Registar = () => {
   return (
     <div>
       <h3 className='text-center text-primary text-4xl font-semibold my-5'>Please Registar</h3>
-      <div className='mx-auto w-1/2'>
+      <div className='mx-10 lg:mx-auto lg:w-1/2'>
         <form onSubmit={(e) => handleSubmit(e)} className='flex flex-col space-y-2'>
           <input required className='border p-2 rounded-lg' type={'text'} name={'name'} placeholder='Name' />
           <input required className='border p-2 rounded-lg' type={'email'} name={'email'} placeholder='Email Address' />
@@ -60,7 +60,7 @@ const Registar = () => {
             (error || updateError || verificationError) && <p className='text-red-500'>{error?.message || updateError?.message} || {verificationError.message}</p>
           }
         </form>
-        <p className=' mt-2'>Have an account? <Link className='hover:text-primary underline' to={'/login'}>Login here</Link></p>
+        <p className='text-sm lg:text-md mt-2'>Have an account? <Link className='hover:text-primary underline' to={'/login'}>Login here</Link></p>
       </div>
       {/* <NewRegistar /> */}
     </div>
