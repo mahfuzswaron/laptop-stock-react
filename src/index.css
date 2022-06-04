@@ -15,23 +15,14 @@ code {
     monospace;
 }
 
-/* .btn-primary{
-  background-color: #0030B8;
-  color: white;
-  padding: 0.90rem 0.99rem;
-  margin-top: 10px;
-  border: none;
-  border-radius: 0.45rem;
+.reveal{
+  position: relative;
+  transform: translateY(150px);
+  opacity: 0;
+  transition: 1.5s all ease;
 }
-.btn-primary:hover svg{
-  width: 30px;
+
+.reveal.active{
+  transform: translateY(0);
+  opacity: 1;
 }
-.btn-primary:focus{
-  border: #0043fa;
-  -webkit-transform: scale(0.8);
-        -ms-transform: scale(0.8);
-        transform: scale(0.8);
-  /* background: linear-gradient(to left, #049ce5 50%, hsl(199, 46%, 48%) 50%);
-    background-size: 200% 100%;
-    background-color: #049ce5;
-    background-position: right bottom; */

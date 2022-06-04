@@ -4,6 +4,7 @@ import { useCreateUserWithEmailAndPassword, useSendEmailVerification, useUpdateP
 import { Link, useNavigate } from 'react-router-dom';
 import { BeatLoader } from 'react-spinners';
 import auth from '../../shared/Firebase/firebase.init';
+import NewRegistar from './NewRegistar';
 const override = css`
   display: block;
   margin: 0 auto;
@@ -61,6 +62,7 @@ const Registar = () => {
         </form>
         <p className=' mt-2'>Have an account? <Link className='hover:text-primary underline' to={'/login'}>Login here</Link></p>
       </div>
+      {/* <NewRegistar /> */}
     </div>
   );
 };

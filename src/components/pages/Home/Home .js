@@ -22,7 +22,7 @@ const Home = () => {
     return (
         <div>
             <section className='flex items-center bg-[#EFEFEF] py-8'>
-                <div className='flex items-center lg:mx-20 mx-10'>
+                <div className='flex items-center reveal lg:mx-20 mx-10'>
                     <div className='w-1/2 h-1/2'>
                         <h1 className='lg:text-6xl sm:text-3xl font-semibold text-seconary '>Welcome to <span className='block lg:text-7xl sm:text-4xl text-primary'>Laptop Stock</span></h1>
                         <p className='lg:mt-5 my-2 text-[9px] lg:text-lg'>
@@ -41,7 +41,7 @@ const Home = () => {
             </section>
 
             {/* inventories section starts */}
-            <section className='my-10 mx-10 lg:mx-20'>
+            <section className='my-10 reveal mx-10 lg:mx-20'>
                 <h1 className='text-primary font-semibold text-center text-2xl lg:text-4xl'>Inventories ({inventories6?.length}/{inventories?.length})</h1>
                 <div className='grid grid-cols-1 lg:grid-cols-3 mt-5 mb-3'>
                     {
@@ -64,12 +64,12 @@ const Home = () => {
             {/* -------------------- */}
 
             {/* Calculator section starts  */}
-            <section className='bg-[#EFEFEF] py-20'>
+            <section className='bg-[#EFEFEF] py-20 reveal'>
                 <Calculator></Calculator>
             </section>
 
             {/* graph chart section starts */}
-            <section className='mt-20 mb-10 w-full lg:h-[500px] h-[250px]'>
+            <section className='mt-20 reveal mb-10 w-full lg:h-[500px] h-[250px]'>
                 <h3 className='lg:text-4xl text-2xl text-primary font-semibold text-center mb-5'>Sale Analytics Chart</h3>
                 <div className='flex justify-center mx-auto w-full  h-4/5'>
                     <ResponsiveContainer width="90%" height="100%">
