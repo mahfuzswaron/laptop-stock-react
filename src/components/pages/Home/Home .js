@@ -54,9 +54,13 @@ const Home = () => {
                 {
                     inventories.length > 0
                     &&
-                    <div className='flex justify-center space-x-4 mx-auto'>
-                        <button className='btn btn-primary mt-2 lg:w-48 sm:w-5 '><Link to={'/inventories'}>See All</Link></button>
-                        <button className='btn btn-primary btn-outline mt-2 lg:w-48 sm:w-5'><Link to={'/manageinventories'}>Manage Inventories</Link></button>
+                    <div className='flex justify-center space-x-4 items-center mx-auto'>
+                        <Link className='btn btn-primary mt-2 lg:w-48 sm:w-5 ' to={'/inventories'}>
+                            See All
+                        </Link>
+                        <Link className='btn btn-primary btn-outline mt-2 lg:w-48 sm:w-5' to={'/manageinventories'}>
+                            Manage Inventories
+                        </Link>
                     </div>
 
                 }

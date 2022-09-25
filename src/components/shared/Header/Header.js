@@ -49,7 +49,6 @@ const Header = () => {
                                 <>
                                     <Link className='border-b-2 border-double border-transparent hover:border-primary text-secondary' to={'/manageinventories'}>MANAGE INVENTORIES</Link>
                                     <Link className='border-b-2 border-double border-transparent hover:border-primary text-secondary' to={'/additem'}>ADD ITEM</Link>
-                                    <Link className='border-b-2 border-double border-transparent hover:border-primary text-secondary' to={'/myitems'}>MY ITEMS</Link>
                                     <Link className='border-b-2 border-double border-transparent hover:border-primary text-secondary' to={'/blogs'}>BLOGS</Link>
                                     <p className='border-b-2 border-double border-transparent hover:border-primary text-secondary' style={{ 'cursor': 'pointer' }} onClick={handleSignOut}>LOG OUT</p>
 
@@ -62,7 +61,7 @@ const Header = () => {
                         }
                     </div>
                 </div>
-                <div className='lg:flex space-x-4 items-center hidden '>
+                <div className='lg:flex space-x-4 items-center items-center hidden '>
                     <Link className='border-b-2  border-double border-transparent hover:border-primary text-secondary' to={'/home'}>HOME</Link>
 
                     <Link className='border-b-2 border-double border-transparent hover:border-primary text-secondary' to={'/inventories'}>INVENTORIES</Link>
@@ -73,7 +72,6 @@ const Header = () => {
                             <>
                                 <Link className='border-b-2 border-double border-transparent hover:border-primary text-secondary' to={'/manageinventories'}>MANAGE INVENTORIES</Link>
                                 <Link className='border-b-2 border-double border-transparent hover:border-primary text-secondary' to={'/additem'}>ADD ITEM</Link>
-                                <Link className='border-b-2 border-double border-transparent hover:border-primary text-secondary' to={'/myitems'}>MY ITEMS</Link>
                                 <Link className='border-b-2 border-double border-transparent hover:border-primary text-secondary' to={'/blogs'}>BLOGS</Link>
                                 <p className='btn btn-secondary btn-outline ' style={{ 'cursor': 'pointer' }} onClick={handleSignOut}>LOG OUT</p>
 
