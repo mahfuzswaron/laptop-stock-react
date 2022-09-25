@@ -12,7 +12,14 @@ import Login from './components/pages/Login/Login';
 import RequireAuth from './components/shared/RequireAuth/RequireAuth';
 import Blogs from './components/pages/Blogs/Blogs';
 import AddItem from './components/pages/AddItem/AddItem';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from './components/shared/Firebase/firebase.init';
+import Spinner from './components/shared/Spinner/Spinner';
 function App() {
+  const [user, loading] = useAuthState(auth);
+  if (loading) {
+    return <Spinner />
+  }
   return (
     <div className='m-0'>
       <Header></Header>
