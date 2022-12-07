@@ -4,7 +4,7 @@ import Qna from './Qna';
 const Blogs = () => {
     // const [qnas, setQnAs] = useState([]);
     // useEffect(() => {
-    //     fetch('https://laptop-stock-server.herokuapp.com/blogs')
+    //     fetch('https://laptop-stock-server.onrender.com/blogs')
     //         .then(res => res.json())
     //         .then(data => setQnAs(data))
 

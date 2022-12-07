@@ -22,7 +22,7 @@ const ManageInventories = () => {
     if (!proceed) {
       return;
     }
-    fetch(`https://laptop-stock-server.herokuapp.com/laptop?id=${id}`, {
+    fetch(`https://laptop-stock-server.onrender.com/laptop?id=${id}`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
