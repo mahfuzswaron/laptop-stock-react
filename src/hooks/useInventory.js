@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 
-const useInventory = id => {
-    const [inventory, setInventory] = useState([]);
+const useInventory = id =>{
+    const [ inventory , setInventory] = useState([]);
+    
+    useEffect(()=>{
 
-    useEffect(() => {
-
-        const getInventoryById = (id) => {
-
-            fetch(`https://laptop-stock-server.onrender.com/laptops/${id}`)
-                .then(res => res.json())
-                .then(data => setInventory(data))
-
+        const getInventoryById = (id) =>{
+            
+        fetch(`https://laptop-stock-server.herokuapp.com/laptops/${id}`)
+        .then(res => res.json())
+        .then(data => setInventory(data))
+        
         }
         getInventoryById(id)
     }, [id, inventory])
