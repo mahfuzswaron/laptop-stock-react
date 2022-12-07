@@ -5,26 +5,26 @@ import useInventory from '../../../hooks/useInventory';
 
 const InventoryDetails = () => {
 
-    const {id} =  useParams();
+    const { id } = useParams();
     const [inventory] = useInventory(id);
-    const {name, _id, description, price, supplier, sold, quantity, img} = inventory;
+    const { name, _id, description, price, supplier, sold, quantity, img } = inventory;
     const [newQuantity, setNewQuantity] = useState('0');
 
-    if(!inventory){
+    if (!inventory) {
         return <p>loading...</p>
     }
-    
-    const handleQuantity =  (WillIncrease) =>{
-        let updatedQuantity ;
+
+    const handleQuantity = (WillIncrease) => {
+        let updatedQuantity;
         let updatedSold = sold;
-        if(WillIncrease === true){
-         updatedQuantity = parseInt(newQuantity) + parseInt(quantity);
+        if (WillIncrease === true) {
+            updatedQuantity = parseInt(newQuantity) + parseInt(quantity);
 
         }
-        
-        if(WillIncrease === false){
-           updatedQuantity = parseInt(quantity) -1;
-           updatedSold = parseInt(sold) + 1;
+
+        if (WillIncrease === false) {
+            updatedQuantity = parseInt(quantity) - 1;
+            updatedSold = parseInt(sold) + 1;
         }
 
         const update = {
@@ -32,43 +32,43 @@ const InventoryDetails = () => {
             sold: updatedSold
         }
 
-        fetch(`https://laptop-stock-server.herokuapp.com/laptop/update?id=${_id}`, {
-           method: 'PUT',
-           headers:{
-               'content-type': 'application/json'
-           },
-           body: JSON.stringify(update)
-       })
-       .then(res => res.json())
-       .then(data => console.log(data))
+        fetch(`https://laptop-stock-server.onrender.com/laptop/update?id=${_id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(update)
+        })
+            .then(res => res.json())
+            .then(data => console.log(data))
     }
 
     return (
         <div className='bg-white border hover:drop-shadow-xl p-5 m-5'>
 
-        <div className='flex '>
-            <div className='card-img w-2/5 flex justify-center'>
-            <img className='w-96' src={img} alt={name} />
-            </div>
+            <div className='flex '>
+                <div className='card-img w-2/5 flex justify-center'>
+                    <img className='w-96' src={img} alt={name} />
+                </div>
 
-            <div className='card-body w-3/5'>
-            <h3  className='text-2xl text-blue-400 font-medium'>{name}</h3>
-            <p className='mt-1'>Product id: {_id}</p>
-            <p className='mt-1'>{description}</p>
-            <p className='mt-1'><strong>${price}</strong></p>
-            <p className='mt-1'>{sold} sold</p>
-            <p className='mt-1'>{quantity} available </p>
-            <p className='mt-1'>Supplier: {supplier}</p>
-            <button 
-            className='bg-green-400 hover:bg-green-500 px-3 py-2 mt-2 rounded text-white' 
-            onClick={() => handleQuantity(false)}
-            >Delevered</button>
-            <hr className='my-2'></hr>
-            <input onBlur={(e)=> e.target.value = ''} onChange={(e)=> setNewQuantity(e.target.value)} className='border block px-3 py-2 mt-2' type={'number'}  />
-            <button onClick={() => {handleQuantity(true)}} className='bg-blue-400 hover:bg-blue-500 px-3 py-2 mt-2 rounded text-white block' >Add Product(s)</button>
+                <div className='card-body w-3/5'>
+                    <h3 className='text-2xl text-blue-400 font-medium'>{name}</h3>
+                    <p className='mt-1'>Product id: {_id}</p>
+                    <p className='mt-1'>{description}</p>
+                    <p className='mt-1'><strong>${price}</strong></p>
+                    <p className='mt-1'>{sold} sold</p>
+                    <p className='mt-1'>{quantity} available </p>
+                    <p className='mt-1'>Supplier: {supplier}</p>
+                    <button
+                        className='bg-green-400 hover:bg-green-500 px-3 py-2 mt-2 rounded text-white'
+                        onClick={() => handleQuantity(false)}
+                    >Delevered</button>
+                    <hr className='my-2'></hr>
+                    <input onBlur={(e) => e.target.value = ''} onChange={(e) => setNewQuantity(e.target.value)} className='border block px-3 py-2 mt-2' type={'number'} />
+                    <button onClick={() => { handleQuantity(true) }} className='bg-blue-400 hover:bg-blue-500 px-3 py-2 mt-2 rounded text-white block' >Add Product(s)</button>
+                </div>
             </div>
-            </div>
-        <button className='w-48 flex mx-auto mt-10 mb-5 py-2 px-5 text-white bg-blue-500 hover:bg-blue-700 rounded'><Link to={'/manageinventories'}>Manage Inventories</Link></button>
+            <button className='w-48 flex mx-auto mt-10 mb-5 py-2 px-5 text-white bg-blue-500 hover:bg-blue-700 rounded'><Link to={'/manageinventories'}>Manage Inventories</Link></button>
         </div>
     );
 };
